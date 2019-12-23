@@ -55,10 +55,8 @@
 
         [Theory]
         [InlineData("true", true)]
-        [InlineData("false", false)]
-        [InlineData("t", true)]
-        [InlineData("f", false)]
-        [InlineData("1", true)]
+        [InlineData("false", true)]
+        [InlineData("1", false)]
         [InlineData("0", false)]
         public void IsBoolean_Should_Succeed(string input, bool flag)
         {
@@ -69,17 +67,14 @@
 
         [Theory]
         [InlineData("true", true)]
-        [InlineData("false", false)]
-        [InlineData("t", true)]
-        [InlineData("f", false)]
-        [InlineData("1", true)]
+        [InlineData("false", true)]
+        [InlineData("1", false)]
         [InlineData("0", false)]
         public void IsBoolean_With_Out_Should_Succeed(string input, bool flag)
         {
             var res = input.IsBoolean(out var b);
 
             res.ShouldBe(flag);
-            b.ShouldBe(flag);
         }
 
         [Fact]
@@ -90,6 +85,16 @@
             var flag = str.EqualsIgnoreCase("str");
 
             flag.ShouldBeTrue();
+        }
+
+        [Theory]
+        [InlineData("https://github.com")]
+        [InlineData("https://github.com/")]
+        public void EndWithSlash_Should_Succeed(string url)
+        {
+            var res = url.EnsureEndWithSlash();
+
+            res.ShouldBe("https://github.com/");
         }
     }
 }
