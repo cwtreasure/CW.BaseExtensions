@@ -51,7 +51,8 @@
 
         /* DateTimeOffset */
 
-        /// <summary>        /// Converts the value to yyyy-MM-dd HH:mm:ss format.
+        /// <summary>
+        /// Converts the value to yyyy-MM-dd HH:mm:ss format.
         /// </summary>
         /// <param name="input">A DateTimeOffset.</param>
         /// <returns>A 24 hour datetime string</returns>
