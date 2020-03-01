@@ -25,4 +25,4 @@ jobs:
     - name: Pack with dotnet
       run: dotnet pack /home/runner/work/CW.BaseExtensions/CW.BaseExtensions/src/CW.BaseExtensions/CW.BaseExtensions.csproj -o /home/runner/work -c Release --no-build
     - name: Push to nuget
-      run: dotnet nuget push /home/runner/work/*.nupkg -k ${{ secrets.Nuget_Key }} -s http://nuget.org/api/v2/package
+      run: dotnet nuget push /home/runner/work/*.nupkg -k ${{ secrets.Nuget_Key }} -s https://www.nuget.org/api/v2/package
