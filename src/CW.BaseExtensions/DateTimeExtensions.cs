@@ -19,19 +19,17 @@
         /// Returns the number of seconds that have elapsed since 1970-01-01T00:00:00Z.
         /// </summary>
         /// <param name="input">A DateTime.</param>
-        /// <param name="kind">Specifies the datetime kind, default is local.</param>
         /// <returns>The number of seconds that have elapsed since 1970-01-01T00:00:00Z.</returns>
-        public static long ToUnixTimeSeconds(this DateTime input, DateTimeKind kind = DateTimeKind.Local)
-            => (long)(input - TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc), kind == DateTimeKind.Utc ? TimeZoneInfo.Utc : TimeZoneInfo.Local)).TotalSeconds;
+        public static long ToUnixTimeSeconds(this DateTime input)
+            => (long)(input - TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc), TimeZoneInfo.Utc)).TotalSeconds;
 
         /// <summary>
         /// Returns the number of milliseconds that have elapsed since 1970-01-01T00:00:00.000Z.
         /// </summary>
         /// <param name="input">A DateTime.</param>
-        /// <param name="kind">Specifies the datetime kind, default is local.</param>
         /// <returns>The number of milliseconds that have elapsed since 1970-01-01T00:00:00.000Z.</returns>
-        public static long ToUnixTimeMilliseconds(this DateTime input, DateTimeKind kind = DateTimeKind.Local)
-            => (long)(input - TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc), kind == DateTimeKind.Utc ? TimeZoneInfo.Utc : TimeZoneInfo.Local)).TotalMilliseconds;
+        public static long ToUnixTimeMilliseconds(this DateTime input)
+            => (long)(input - TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc), TimeZoneInfo.Utc)).TotalMilliseconds;
 
         /// <summary>
         /// Converts the value of the current System.DateTime object to yyyy-MM-dd 23:59:59 format.

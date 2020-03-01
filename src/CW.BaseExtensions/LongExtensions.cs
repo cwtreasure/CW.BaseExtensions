@@ -16,11 +16,10 @@
         /// </summary>
         /// <param name="input">A Unix time</param>
         /// <param name="isSec">The numner is seconds or milliseconds, default is seconds</param>
-        /// <param name="kind">Specifies the datetime kind, default is local.</param>
         /// <returns>DateTime</returns>
-        public static DateTime ToDateTime(this long input, bool isSec = true, DateTimeKind kind = DateTimeKind.Local)
+        public static DateTime ToDateTime(this long input, bool isSec = true)
             => isSec
-            ? TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc), kind == DateTimeKind.Utc ? TimeZoneInfo.Utc : TimeZoneInfo.Local).AddSeconds(input)
-            : TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc), kind == DateTimeKind.Utc ? TimeZoneInfo.Utc : TimeZoneInfo.Local).AddMilliseconds(input);
+            ? TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc), TimeZoneInfo.Utc).AddSeconds(input)
+            : TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc), TimeZoneInfo.Utc).AddMilliseconds(input);
     }
 }

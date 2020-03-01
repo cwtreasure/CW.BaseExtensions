@@ -17,25 +17,23 @@ namespace CW.BaseExtensions.Tests
         }
 
         [Theory]
-        [InlineData(DateTimeKind.Utc, 1573495200L)]
-        [InlineData(DateTimeKind.Local, 1573466400L)]
-        public void DateTime_ToUnixTimeSeconds_Should_Succeed(DateTimeKind kind, long second)
+        [InlineData(1573495200L)]
+        public void DateTime_ToUnixTimeSeconds_Should_Succeed(long second)
         {
-            var input = new DateTime(2019, 11, 11, 18, 0, 0, kind);
+            var input = new DateTime(2019, 11, 11, 18, 0, 0);
 
-            var unixTime = input.ToUnixTimeSeconds(kind);
+            var unixTime = input.ToUnixTimeSeconds();
 
             unixTime.ShouldBe(second);
         }
 
         [Theory]
-        [InlineData(DateTimeKind.Utc, 1573495200000L)]
-        [InlineData(DateTimeKind.Local, 1573466400000L)]
-        public void DateTime_ToUnixTimeMilliseconds_Should_Succeed(DateTimeKind kind, long second)
+        [InlineData(1573495200000L)]
+        public void DateTime_ToUnixTimeMilliseconds_Should_Succeed(long second)
         {
-            var input = new DateTime(2019, 11, 11, 18, 0, 0, kind);
+            var input = new DateTime(2019, 11, 11, 18, 0, 0);
 
-            var unixTime = input.ToUnixTimeMilliseconds(kind);
+            var unixTime = input.ToUnixTimeMilliseconds();
 
             unixTime.ShouldBe(second);
         }
@@ -83,11 +81,11 @@ namespace CW.BaseExtensions.Tests
         [Fact]
         public void DateTimeOffset_ToDayLastSecond_Should_Succeed()
         {
-            var input = new DateTimeOffset(2019, 11, 11, 18, 0, 0, TimeSpan.FromHours(8));
+            var input = new DateTimeOffset(2019, 11, 11, 18, 0, 0, TimeSpan.FromHours(0));
 
             var dt = input.ToDayLastSecond();
 
-            dt.ShouldBe(new DateTimeOffset(2019, 11, 11, 23, 59, 59, TimeSpan.FromHours(8)));
+            dt.ShouldBe(new DateTimeOffset(2019, 11, 11, 23, 59, 59, TimeSpan.FromHours(0)));
         }
 
         [Theory]

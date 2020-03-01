@@ -27,21 +27,19 @@
         }
 
         [Theory]
-        [InlineData(1573495200L, DateTimeKind.Utc)]
-        [InlineData(1573466400L, DateTimeKind.Local)]
-        public void Long_ToDateTime_Is_Sec_Should_Succeed(long ut, DateTimeKind kind)
+        [InlineData(1573495200L)]
+        public void Long_ToDateTime_Is_Sec_Should_Succeed(long ut)
         {
-            var dt = ut.ToDateTime(true, kind);
+            var dt = ut.ToDateTime(true);
 
             dt.ShouldBe(new DateTime(2019, 11, 11, 18, 0, 0));
         }
 
         [Theory]
-        [InlineData(1573495200000L, DateTimeKind.Utc)]
-        [InlineData(1573466400000L, DateTimeKind.Local)]
-        public void Long_ToDateTime_Is_Not_Sec_Should_Succeed(long ut, DateTimeKind kind)
+        [InlineData(1573495200000L)]
+        public void Long_ToDateTime_Is_Not_Sec_Should_Succeed(long ut)
         {
-            var dt = ut.ToDateTime(false, kind);
+            var dt = ut.ToDateTime(false);
 
             dt.ShouldBe(new DateTime(2019, 11, 11, 18, 0, 0));
         }
