@@ -4,19 +4,20 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Owners>Catcher Wong</Owners>
     <Authors>Catcher Wong</Authors>
-    <Version>0.0.7</Version>
+    <Version>0.0.8</Version>
     <Description>
       CW.BaseExtensions contains some base extension methods.
     </Description>
     <PackageTags>extension</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+     <PackageIcon>icon.png</PackageIcon>
     <PackageReleaseNotes>
     </PackageReleaseNotes>
   </PropertyGroup>
     
   <ItemGroup>
     <None Include="../../LICENSE" Pack="true" Visible="false" PackagePath="" />
-    <None Include="../../media/nuget-icon.png" Pack="true" Visible="false" PackagePath="" />
+    <None Include="../../media/icon.png" Pack="true" Visible="false" PackagePath="" />
   </ItemGroup>
 
 </Project>
