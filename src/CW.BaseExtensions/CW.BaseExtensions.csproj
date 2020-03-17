@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Owners>Catcher Wong</Owners>
     <Authors>Catcher Wong</Authors>
-    <Version>0.0.8</Version>
+    <Version>0.0.9</Version>
     <Description>
-      CW.BaseExtensions contains some base extension methods.
+      CW.BaseExtensions contains some base extension and helper methods.
     </Description>
     <PackageTags>extension</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>

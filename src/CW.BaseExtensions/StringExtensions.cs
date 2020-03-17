@@ -225,7 +225,7 @@
         /// <param name="upperCase">Is upper case or not</param>
         /// <returns>Converted result</returns>
         public static string ToMd5(this string input, bool upperCase = false)
-            => GetMd5(input, upperCase);
+            => HashHelper.GetMd5(input, upperCase);
 
         /// <summary>
         /// Converts this string to sha1.
@@ -234,7 +234,7 @@
         /// <param name="upperCase">Is upper case or not</param>
         /// <returns>Converted result</returns>
         public static string ToSha1(this string input, bool upperCase = false)
-            => GetSha1(input, upperCase);
+            => HashHelper.GetSha1(input, upperCase);
 
         /// <summary>
         /// Adds / to end of given string if it does not ends with the char.
@@ -274,36 +274,6 @@
             }
 
             return input.Left(maxLength - postfix.Length) + postfix;
-        }
-
-        private static string GetMd5(string str, bool upperCase = false)
-        {
-            using var md5 = MD5.Create();
-            var inputBytes = Encoding.UTF8.GetBytes(str);
-            var hashBytes = md5.ComputeHash(inputBytes);
-
-            var sb = new StringBuilder();
-            foreach (var hashByte in hashBytes)
-            {
-                sb.Append(hashByte.ToString(upperCase ? "X2" : "x2"));
-            }
-
-            return sb.ToString();
-        }
-
-        private static string GetSha1(string str, bool upperCase = false)
-        {
-            using SHA1 sha1 = SHA1.Create();
-            var inputBytes = Encoding.UTF8.GetBytes(str);
-            var hashBytes = sha1.ComputeHash(inputBytes);
-
-            var sb = new StringBuilder();
-            foreach (var hashByte in hashBytes)
-            {
-                sb.Append(hashByte.ToString(upperCase ? "X2" : "x2"));
-            }
-
-            return sb.ToString();
         }
     }
 }
